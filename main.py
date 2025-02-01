@@ -44,8 +44,19 @@ def get_trusted_build_determination(package_name):
     test_json = retrieve_trusted_build_json(package_name, latest_version, filename)
     return check_trusted_build_status(test_json)
 
+def get_package_names(requirements_file):
+    with open(requirements_file, "r") as file:
+        packages = [
+            line.split("==")[0].strip().split(">=")[0].split("<=")[0]
+            for line in file
+            if line.strip() and not line.startswith("#")
+        ]
+    return packages
+
+
 if __name__ == "__main__":
-    pkgs = ["urllib3", "ntia-conformance-checker"]
+    requirements_file = "requirements.txt"
+    pkgs = get_package_names(requirements_file)
     
     package_status = {}
     for pkg in pkgs:
@@ -56,6 +67,14 @@ if __name__ == "__main__":
         if package_status[pkg]:
             cnt += 1
     
+    print("")
     print("TRUSTED BUILD STATUS")
     print(f"PyPI: {cnt / len(package_status) * 100}%")
     print("chibbies: 100%")
+    print("")
+    print("PyPI Details")
+    for pkg in package_status.keys():
+        if package_status[pkg]:
+            print(f"{pkg}: Trusted")
+        else:
+            print(f"{pkg}: Untrusted")
