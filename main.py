@@ -58,4 +58,4 @@ if __name__ == "__main__":
     
     print("TRUSTED BUILD STATUS")
     print(f"PyPI: {cnt / len(package_status) * 100}%")
-    print("Chainguard Libraries: 100%")
+    print("chibbies: 100%")
