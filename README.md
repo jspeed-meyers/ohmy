@@ -19,7 +19,7 @@ $ pip install -r requirements.txt
 $ python3 main.py -h
 usage: main.py [-h] [-f FILE] [-v]
 
-Assess the trusted build score of your Python packages.
+Assess the trust score of your Python packages.
 
 options:
   -h, --help       show this help message and exit
