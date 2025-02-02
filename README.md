@@ -1,2 +1,13 @@
+![Logo](images/logo.png)
+
 # ohmy
-Assess test trusted build score of your python packages
+Assess the trusted build score of your python packages.
+
+## Installation
+
+
+
+## Usage
+
+
+
