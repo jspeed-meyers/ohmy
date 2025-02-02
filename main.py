@@ -3,7 +3,7 @@ import argparse
 import python
 
 def parse_cli():
-    parser = argparse.ArgumentParser(description='Assess the trusted build score of your Python packages.')
+    parser = argparse.ArgumentParser(description='Assess the trust score of your Python packages.')
     parser.add_argument('-f', '--file', type=str, help='The name of the dependency file to be ingested.')
     parser.add_argument('-v', '--verbose', action='store_true', help='Option to print verbose output.')
     return parser.parse_args()
